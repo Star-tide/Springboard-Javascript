@@ -1,27 +1,35 @@
-const users = [
-    {username: 'mlewis'},
-    {username: 'akagen'},
-    {username: 'msmith'}
-  ];
-function findUserByUsername(array, string) {
-    return array.find(function(user) {
-        return user.username === string;
-    })
-};
-
-console.log(findUserByUsername(users, 'mlewis'));
-
-function removeUser(array, string) {
-
-    let user = array.findIndex(function(user) {
-        return user.username === string;
-    });
-
-    if(user === -1) return;
-
-    return users.splice(user, 1)[0];
-     
+function hasOddNumber(array) {
+  return array.some(function(value) {
+    return value % 2 != 0;
+  })
 }
 
-console.log(removeUser(users, 'akagen'));
-console.log(removeUser(users, 'akagen'));
+function hasAZero(number) {
+  return number.toString().split('').some(function(value){
+    return value === '0';
+  })
+}
+
+function hasOnlyOddNumbers(array) {
+  return array.every(function(value) {
+    return value % 2 != 0;
+  })
+}
+
+function hasNoDuplicates(array) {
+  return array.every(function(val){
+    return array.indexOf(val) === array.lastIndexOf(val);
+  })
+}
+
+function hasCertainKey(array, key) {
+  return array.every(function(value){
+    return value[key] !== undefined;
+  })
+}
+
+function hasCertainValue(array, key, value) {
+  return array.every(function(object){
+    return object[key] == value;
+  })
+}
